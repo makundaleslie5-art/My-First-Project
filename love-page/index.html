@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Something for You ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      background: #050807;
+      color: #39ff88;
+      font-family: monospace;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      width: 100%;
+      max-width: 600px;
+      padding: 28px 20px;
+      border: 1px solid #176b40;
+      border-radius: 16px;
+      background: rgba(5, 20, 13, 0.95);
+      box-shadow: 0 0 30px #00ff4420;
+    }
+
+    .status {
+      color: #39ff88;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(24px, 6vw, 38px);
+      color: #ff4268;
+      text-shadow: 0 0 18px #ff1744;
+    }
+
+    #terminal {
+      text-align: left;
+      color: #39ff88;
+      line-height: 1.9;
+      min-height: 100px;
+      font-size: 13px;
+    }
+
+    .heart {
+      margin: 24px 0;
+      color: #ff1744;
+      font-size: 100px;
+      text-shadow: 0 0 25px #ff1744;
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.18); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.12); }
+    }
+
+    #love-message {
+      display: none;
+      color: #fff0f4;
+      font-family: Arial, sans-serif;
+      font-size: 19px;
+      line-height: 1.8;
+      animation: appear 2s ease;
+    }
+
+    #love-message p {
+      color: #ff8da5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 22px;
+      border: 1px solid #39ff88;
+      border-radius: 8px;
+      background: transparent;
+      color: #39ff88;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #39ff8820;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #619878;
+      font-size: 11px;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .heart { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="screen">
+    <div class="status">GHOSTWRLD // LOVE PROTOCOL v1.0</div>
+
+    <h1>❤️ SYSTEM: LOVE DETECTED</h1>
+
+    <div id="terminal"></div>
+
+    <div class="heart" aria-label="Beating red heart">♥</div>
+
+    <button id="open-button" hidden onclick="revealLove()">
+      DECRYPT MY MESSAGE ❤️
+    </button>
+
+    <section id="love-message">
+      <h2>Hey baby ❤️</h2>
+      <p>
+        It's Gray over here.
+        You make my world a better place. ❤️
+      </p>
+      <p>
+        Out of all the things I could create,
+        this little piece of code is just one way
+        of reminding you that you're special to me.
+      </p>
+      <h2>♥ Yours, Gray ♥</h2>
+    </section>
+
+    <div class="footer">
+      NO HACKING. NO FIREWALLS BROKEN. JUST LOVE. ❤️
+    </div>
+  </main>
+
+  <script>
+    const lines = [
+      "> Initializing love protocol...",
+      "> Loading beautiful memories...",
+      "> Checking heart status: FULL ❤️",
+      "> Searching for someone special...",
+      "> Match found: YOU ❤️",
+      "> Encrypting a message from Gray..."
+    ];
+
+    const terminal = document.getElementById("terminal");
+    const button = document.getElementById("open-button");
+    let lineIndex = 0;
+
+    function typeLine() {
+      if (lineIndex >= lines.length) {
+        button.hidden = false;
+        return;
+      }
+
+      terminal.textContent += lines[lineIndex] + "\n";
+      lineIndex++;
+      setTimeout(typeLine, 850);
+    }
+
+    function revealLove() {
+      document.getElementById("love-message").style.display = "block";
+      button.hidden = true;
+    }
+
+    typeLine();
+  </script>
+</body>
+</html>
+
